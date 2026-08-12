@@ -2,6 +2,14 @@
 
 Miku UI 官方 `platform_device_miku_sepolicy` 的 fork，含 marble（POCO F5, SM7475/ukee）专属适配。
 
+## 平台声明
+
+- **平台**: Android 15（trunk_staging / Baklava, userdebug）
+- **适配分支**: `miku-a15`（本仓库主分支）
+- **版本标记**: tag `a15`（2026-08-12 打标）
+- **基线**: Miku UI Vampire v3（A15 线）
+- **A16 迁移**: 下一轮切 Android 16 时本分支冻结，新平台另建 `miku-a16` 分支
+
 ## 分支
 
 - `miku-a15` — Android 15 适配分支（本仓库主分支，上游 miku-a15 基线）

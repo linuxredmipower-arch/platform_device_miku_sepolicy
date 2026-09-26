@@ -1,2 +1,5 @@
 # Light
 vendor.light.backlight.disable         u:object_r:vendor_light_prop:s0
+
+# IR
+vendor.ir.carrier_freqs                u:object_r:vendor_ir_prop:s0

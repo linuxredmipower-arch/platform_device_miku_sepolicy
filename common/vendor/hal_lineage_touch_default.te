@@ -1,5 +1,11 @@
 type hal_lineage_touch_default, domain;
 hal_server_domain(hal_lineage_touch_default, hal_lineage_touch)
 
+# Round 7 fix (A15 #28): AIDL add_service 到 servicemanager 被拒
+# (avc { call }) -> add_service -129 -> LOG(FATAL) abort。
+# hal_server_domain 宏不带 binder_call, 必须显式声明。
+binder_call(hal_lineage_touch_default, servicemanager)
+binder_call(hal_lineage_touch_default, vndservicemanager)
+
 type hal_lineage_touch_default_exec, exec_type, vendor_file_type, file_type;
 init_daemon_domain(hal_lineage_touch_default)

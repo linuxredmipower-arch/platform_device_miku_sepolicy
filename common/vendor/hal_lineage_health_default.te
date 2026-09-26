@@ -1,0 +1,16 @@
+type hal_lineage_health_default, domain;
+hal_server_domain(hal_lineage_health_default, hal_lineage_health)
+
+type hal_lineage_health_default_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_lineage_health_default)
+
+binder_call(hal_lineage_health_default, servicemanager);
+
+# Qualcomm variant: battery/USB sysfs access
+# (LOS official uses rw_dir_file() macro; trunk/r16 删除了它并全局禁止写
+# sysfs 目录 - health HAL 只需只读。A16 sepolicy_vndr 类型已 vendor 化,
+# 直接写 vendor_ 前缀, 不依赖 M4DEFS 映射)
+allow hal_lineage_health_default vendor_sysfs_battery_supply:dir r_dir_perms;
+allow hal_lineage_health_default vendor_sysfs_battery_supply:file r_file_perms;
+allow hal_lineage_health_default vendor_sysfs_usb_supply:dir r_dir_perms;
+allow hal_lineage_health_default vendor_sysfs_usb_supply:file r_file_perms;
